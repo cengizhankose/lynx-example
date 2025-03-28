@@ -7,27 +7,52 @@ const PerformanceTestScreen = () => {
   const [boxes, setBoxes] = useState<Array<{ id: number; color: string }>>([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [status, setStatus] = useState("Ready");
+  const [progress, setProgress] = useState(0);
 
   const generateBoxes = useCallback((count: number) => {
     setIsGenerating(true);
     setStatus(`Generating ${count} boxes...`);
+    setProgress(0);
 
     // Use setTimeout to avoid blocking the UI thread
     setTimeout(() => {
-      // const startTime = performance.now();
-      const newBoxes = [];
+      const newBoxes: Array<{ id: number; color: string }> = [];
+      const batchSize = Math.min(10000, Math.floor(count / 10));
 
-      for (let i = 0; i < count; i++) {
-        const randomColor =
-          "#" + Math.floor(Math.random() * 16777215).toString(16);
-        newBoxes.push({ id: i, color: randomColor });
-      }
+      const generateBatch = (startIdx: number) => {
+        const endIdx = Math.min(startIdx + batchSize, count);
 
-      setBoxes(newBoxes);
-      // const endTime = performance.now();
-      setIsGenerating(false);
-      setStatus(`Generated ${count} boxes in `);
+        for (let i = startIdx; i < endIdx; i++) {
+          const randomColor =
+            "#" + Math.floor(Math.random() * 16777215).toString(16);
+          newBoxes.push({ id: i, color: randomColor });
+        }
+
+        const currentProgress = Math.min(
+          100,
+          Math.floor((endIdx / count) * 100)
+        );
+        setProgress(currentProgress);
+
+        if (endIdx < count) {
+          // Process next batch
+          setTimeout(() => generateBatch(endIdx), 0);
+        } else {
+          // Finished generating all boxes
+          setBoxes(newBoxes);
+          setIsGenerating(false);
+          setStatus(`Generated ${count} boxes in `);
+        }
+      };
+
+      // Start the first batch
+      generateBatch(0);
     }, 100);
+  }, []);
+
+  const deleteBoxes = useCallback(() => {
+    setBoxes([]);
+    setStatus("Boxes deleted");
   }, []);
 
   return (
@@ -35,6 +60,12 @@ const PerformanceTestScreen = () => {
       <view className="test-controls">
         <text className="test-title">Performance Test</text>
         <text className="test-status">{status}</text>
+        {isGenerating && (
+          <view className="progress-container">
+            <view className="progress-bar" style={{ width: `${progress}%` }} />
+            <text className="progress-text">{progress}%</text>
+          </view>
+        )}
         <view className="test-buttons">
           <view
             className={`test-button ${isGenerating ? "disabled" : ""}`}
@@ -54,16 +85,26 @@ const PerformanceTestScreen = () => {
           >
             <text>1M Boxes</text>
           </view>
+          <view
+            className={`test-button delete-button ${
+              isGenerating || boxes.length === 0 ? "disabled" : ""
+            }`}
+            bindtap={() => !isGenerating && boxes.length > 0 && deleteBoxes()}
+          >
+            <text>Delete</text>
+          </view>
         </view>
       </view>
       <scroll-view className="boxes-container" scroll-orientation="vertical">
-        {boxes.map((box) => (
-          <view
-            key={box.id}
-            className="performance-box"
-            style={{ backgroundColor: box.color }}
-          />
-        ))}
+        <view className="box-grid">
+          {boxes.map((box) => (
+            <view
+              key={box.id}
+              className="performance-box"
+              style={{ backgroundColor: box.color }}
+            />
+          ))}
+        </view>
       </scroll-view>
     </view>
   );
