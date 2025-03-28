@@ -2,7 +2,11 @@
 
 A mobile calculator application and a performance test tool built with ReactLynx and powered by the Rspeedy framework.
 
-I made this app to test lynx framework feel free to experiment on your own as well
+I made this app to test lynx framework feel free to experiment on your own as well.
+
+## Problems
+
+crashes on generating 100k or 1m boxes keep that in mind also does not have any safe area inset control as well.
 
 ## Project Overview
 
