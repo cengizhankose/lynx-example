@@ -46,21 +46,20 @@ A QR code will be displayed in your terminal. Scan this QR code with your LynxEx
 
 ## ScreenShots
 
-### Calculator Interface
-
-![Calculator Interface](https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss1.png?raw=true)
-
-### Performance Tab
-
-![Dark Mode](https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss2.png?raw=true)
-
-### Performance Tab Loading
-
-![Calculation History](https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss3.png?raw=true)
-
-### Performance Tab Active
-
-![Calculation History](https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss4.png?raw=true)
+<table>
+  <tr>
+    <td align="center"><b>Calculator Interface</b></td>
+    <td align="center"><b>Performance Tab</b></td>
+    <td align="center"><b>Performance Tab Loading</b></td>
+    <td align="center"><b>Performance Tab Active</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss1.png?raw=true" width="200"/></td>
+    <td><img src="https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss2.png?raw=true" width="200"/></td>
+    <td><img src="https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss3.png?raw=true" width="200"/></td>
+    <td><img src="https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss4.png?raw=true" width="200"/></td>
+  </tr>
+</table>
 
 ## Technologies
 
