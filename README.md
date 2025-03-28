@@ -48,15 +48,19 @@ A QR code will be displayed in your terminal. Scan this QR code with your LynxEx
 
 ### Calculator Interface
 
-![Calculator Interface](https://example.com/calculator-screenshot.png)
+![Calculator Interface](https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss1.png?raw=true)
 
 ### Performance Tab
 
-![Dark Mode](https://example.com/dark-mode-screenshot.png)
+![Dark Mode](https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss2.png?raw=true)
+
+### Performance Tab Loading
+
+![Calculation History](https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss3.png?raw=true)
 
 ### Performance Tab Active
 
-![Calculation History](https://example.com/history-screenshot.png)
+![Calculation History](https://github.com/cengizhankose/lynx-example/blob/main/screenshots/ss4.png?raw=true)
 
 ## Technologies
 
