@@ -1,0 +1,224 @@
+:root {
+  background-color: #000;
+  --color-text: #fff;
+  --calc-bg: #1c1c1c;
+  --display-bg: #000;
+  --key-bg: #333;
+  --key-function-bg: #a5a5a5;
+  --key-function-text: #000;
+  --key-operator-bg: #ff9500;
+  --key-pressed: #555;
+  --navbar-bg: #222;
+  --navbar-active: #ff9500;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--calc-bg);
+}
+
+.screen-container {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Calculator layout */
+.calculator-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Display */
+.display {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 20px;
+  background-color: var(--display-bg);
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.display-text {
+  font-size: 48px;
+  color: var(--color-text);
+  padding: 10px 0;
+  text-align: right;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Keypad */
+.keypad {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+}
+
+.key-row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+
+.key {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--key-bg);
+  border-radius: 50%;
+  margin: 0 6px;
+  aspect-ratio: 1;
+}
+
+.key text {
+  font-size: 24px;
+  color: var(--color-text);
+}
+
+.key.function {
+  background-color: var(--key-function-bg);
+}
+
+.key.function text {
+  color: var(--key-function-text);
+}
+
+.key.operator {
+  background-color: var(--key-operator-bg);
+}
+
+.key.zero {
+  flex: 2;
+  border-radius: 25px;
+  justify-content: flex-start;
+  padding-left: 24px;
+}
+
+/* Performance Test Screen */
+.performance-test {
+  flex: 1;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.test-controls {
+  padding: 20px;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.test-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+
+.test-status {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+.test-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.test-button {
+  padding: 10px 20px;
+  background-color: var(--key-operator-bg);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.test-button text {
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+.test-button.disabled {
+  background-color: #555;
+  opacity: 0.5;
+}
+
+.boxes-container {
+  flex: 1;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.performance-box {
+  width: 5px;
+  height: 5px;
+}
+
+/* Bottom Navbar */
+.bottom-navbar {
+  height: 60px;
+  background-color: var(--navbar-bg);
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item text {
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.nav-item.active {
+  border-top: 2px solid var(--navbar-active);
+}
+
+.nav-item.active text {
+  color: var(--navbar-active);
+  font-weight: bold;
+}
+
+/* Remove any unwanted styles from the original template */
+.Background,
+.App,
+.Banner,
+.Logo,
+.Logo--react,
+.Logo--lynx,
+.Content,
+.Arrow,
+.Title,
+.Subtitle,
+.Description,
+.Hint {
+  display: none;
+}
